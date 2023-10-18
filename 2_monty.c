@@ -1,7 +1,7 @@
 #include "monty.h"
 /**
 *rotl- rotates the stack to the top
-*@head: pointer to the first node of stack 
+*@head: pointer to the first node of stack
 *@counter: line number
 *Description: top element becomes last and second top becomes first
 *Return: void
@@ -14,7 +14,7 @@ if (*head == NULL || (*head)->next == NULL)
 {
 return;
 }
-stack_arr= (*head)->next;
+stack_arr = (*head)->next;
 stack_arr->prev = NULL;
 while (temp->next != NULL)
 {
