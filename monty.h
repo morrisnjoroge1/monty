@@ -79,5 +79,6 @@ void f_pop(stack_t **head, unsigned int counter);
 void f_swap(stack_t **head, unsigned int counter);
 void f_add(stack_t **head, unsigned int counter);
 void f_nop(stack_t **head, unsigned int counter);
+int getline(char **line, size_t *n, FILE *stream);
 
 #endif
