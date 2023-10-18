@@ -60,7 +60,7 @@ void stack(stack_t **head, unsigned int counter)
 {
 (void)head;
 (void)counter;
-bus.lifo = 0;
+bus.lifi = 0;
 }
 
 
@@ -75,7 +75,7 @@ void queue(stack_t **head, unsigned int counter)
 {
 (void)head;
 (void)counter;
-bus.lifo = 1;
+bus.lifi = 1;
 }
 
 /**
@@ -99,9 +99,9 @@ add->next = NULL;
 if (stack_arr)
 {
 while (stack_arr->next)
-stack_arrr = stack_arr->next;
+stack_arr = stack_arr->next;
 }
-if (!stuck_arr)
+if (!stack_arr)
 {
 *head = add;
 add->prev = NULL;

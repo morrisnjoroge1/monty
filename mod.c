@@ -1,4 +1,4 @@
-#include "monty.c"
+#include "monty.h"
 
 /**
 * mod - computes the rest of the division of the second
@@ -9,10 +9,10 @@
 *stack is one element shorter
 * Return: void
 */
-void mod(stack_t **head, unsigned int counter)
+void f_mod(stack_t **head, unsigned int counter)
 {
 stack_t *h;
-int len = 0, stack_arr;
+int len = 0, aux;
 
 h = *head;
 while (h)
@@ -37,8 +37,8 @@ free(bus.content);
 free_stack(*head);
 exit(EXIT_FAILURE);
 }
-stack_arr = h->next->n % h->n;
-h->next->n = stack_arr
+aux = h->next->n % h->n;
+h->next->n = aux;
 *head = h->next;
 free(h);
 }
