@@ -6,7 +6,7 @@
  *@n: value of new node
  *Return: void
  */
-void add_node(stack **head, int n)
+void add_node(stack_t **head, int n)
 {
 	stack_t *neww, *stack_arr;
 

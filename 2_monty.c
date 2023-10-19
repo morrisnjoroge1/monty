@@ -51,12 +51,12 @@ set->prev = NULL;
 }
 
 /**
-* stack - sets the format of data to stack
+* f_stack - sets the format of data to stack
 * @head: pointer to the stack head
 * @counter: line number
 * Return: void
 */
-void stack(stack_t **head, unsigned int counter)
+void f_stack(stack_t **head, unsigned int counter)
 {
 (void)head;
 (void)counter;
@@ -77,6 +77,7 @@ void queue(stack_t **head, unsigned int counter)
 (void)counter;
 bus.lifo = 1;
 }
+
 
 /**
 * addnode_end - add node to the tail stack

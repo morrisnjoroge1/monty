@@ -19,13 +19,13 @@ instruction_t opst[] = {
 {"sub", f_sub},
 {"div", f_div},
 {"mul", f_mul},
-{"mod", f_mod},
+{"mod", mod},
 {"pchar", pchar},
 {"pstr", pstr},
 {"rotl", rotl},
 {"rotr", rotr},
 {"queue", queue},
-{"stack", stack},
+{"stack", f_stack},
 {NULL, NULL}
 };
 unsigned int a = 0;

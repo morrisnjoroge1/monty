@@ -67,7 +67,7 @@ void rotr(stack_t **head, __attribute__((unused)) unsigned int counter);
 void add_node(stack_t **head, int n);
 void addnode_end(stack_t **head, int n);
 void queue(stack_t **head, unsigned int counter);
-void stack(stack_t **head, unsigned int counter);
+void f_stack(stack_t **head, unsigned int counter);
 char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
 ssize_t getstdin(char **lineptr, int file);
 char  *clean_line(char *content);
