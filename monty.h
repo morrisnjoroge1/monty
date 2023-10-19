@@ -59,7 +59,7 @@ extern bus_t bus;
 void f_sub(stack_t **head, unsigned int counter);
 void f_div(stack_t **head, unsigned int counter);
 void f_mul(stack_t **head, unsigned int counter);
-void f_mod(stack_t **head, unsigned int counter);
+void mod(stack_t **head, unsigned int counter);
 void pchar(stack_t **head, unsigned int counter);
 void pstr(stack_t **head, unsigned int counter);
 void rotl(stack_t **head, unsigned int counter);

@@ -9,10 +9,10 @@
 *stack is one element shorter
 * Return: void
 */
-void f_mod(stack_t **head, unsigned int counter)
+void mod(stack_t **head, unsigned int counter)
 {
 stack_t *h;
-int len = 0, aux;
+int len = 0, num;
 
 h = *head;
 while (h)
@@ -24,7 +24,7 @@ if (len < 2)
 {
 fprintf(stderr, "L%d: can't mod, stack too short\n", counter);
 fclose(bus.file);
-free(bus.content);
+free(bus.command);
 free_stack(*head);
 exit(EXIT_FAILURE);
 }
@@ -33,12 +33,12 @@ if (h->n == 0)
 {
 fprintf(stderr, "L%d: division by zero\n", counter);
 fclose(bus.file);
-free(bus.content);
+free(bus.command);
 free_stack(*head);
 exit(EXIT_FAILURE);
 }
-aux = h->next->n % h->n;
-h->next->n = aux;
+num = h->next->n % h->n;
+h->next->n = num;
 *head = h->next;
 free(h);
 }
