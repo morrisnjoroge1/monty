@@ -47,24 +47,24 @@ stack_t *head = NULL;
 typedef void (*op_func)(stack_t **, unsigned int);
 
 /*ALL THE PROTOTYPES*/
-void f_add(stack_t **head, unsigned int line_number);
-void f_div(stack_t **head, unsigned int line_number);
-void f_sub(stack_t **head, unsigned int line_number);
-void f_mod(stack_t **head, unsigned int line_number);
-void f_nop(stack_t **head, unsigned int line_number);
+void f_add(stack_t **neww, unsigned int line_number);
+void f_div(stack_t **neww, unsigned int line_number);
+void f_sub(stack_t **neww, unsigned int line_number);
+void f_mod(stack_t **neww, unsigned int line_number);
+void f_nop(stack_t **neww, unsigned int line_number);
 
-void f_mul(stack_t **head, unsigned int line_number);
-void f_swap(stack_t **head, unsigned int line_number);
-void f_pint(stack_t **head, unsigned int line_number);
-void f_pop(stack_t **head, unsigned int line_number);
+void f_mul(stack_t **neww, unsigned int line_number);
+void f_swap(stack_t **neww, unsigned int line_number);
+void f_pint(stack_t **neww, unsigned int line_number);
+void f_pop(stack_t **neww, unsigned int line_number);
 
-void f_pchar(stack_t **head, unsigned int line_number);
-void f_pstr(stack_t **head, __attribute__((unused))unsigned int line_number);
-void rotl(stack_t **head, __attribute__((unused))unsigned int line_number);
-void rotr(stack_t **head, __attribute__((unused))unsigned int line_number);
+void f_pchar(stack_t **neww, unsigned int line_number);
+void f_pstr(stack_t **neww, __attribute__((unused))unsigned int line_number);
+void rotl(stack_t **neww, __attribute__((unused))unsigned int line_number);
+void rotr(stack_t **neww, __attribute__((unused))unsigned int line_number);
 
-void add_queue(stack_t **head, __attribute__((unused))unsigned int line_number);
-void f_push(stack_t **head, __attribute__((unused))unsigned int line_number);
+void add_queue(stack_t **neww, __attribute__((unused))unsigned int line_number);
+void f_push(stack_t **neww, __attribute__((unused))unsigned int line_number);
 void f_pall(stack_t **neww, unsigned int line_number);
 
 void print_err(int error_num, ...);

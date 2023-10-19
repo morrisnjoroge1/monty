@@ -7,18 +7,18 @@
  *@line_number: value of elememnts
  *Return: void
  */
-void f_mul(stack_t **head, unsigned int line_number)
+void f_mul(stack_t **neww, unsigned int line_number)
 {
 	int num;
 
-	if (head == NULL || (*head) == NULL || (*head)->next == NULL)
+	if (neww == NULL || (*neww) == NULL || (*neww)->next == NULL)
 		print_err1(8, line_number, "mul");
 
-	(*head) = (*head)->next;
-	num = (*head)->n * (*head)->prev->n;
-	(*head)->n = num;
-	free((*head)->prev);
-	(*head)->prev = NULL;
+	(*neww) = (*neww)->next;
+	num = (*neww)->n * (*neww)->prev->n;
+	(*neww)->n = num;
+	free((*neww)->prev);
+	(*neww)->prev = NULL;
 }
 
 /**
@@ -28,21 +28,21 @@ void f_mul(stack_t **head, unsigned int line_number)
  *Description: usage: swap
  *Return: void
  */
-void f_swap(stack_t **head, unsigned int line_number)
+void f_swap(stack_t **neww, unsigned int line_number)
 {
 	stack_t *temp;
 
-	if (head == NULL || (*head) == NULL || (*head)->next == NULL)
+	if (neww == NULL || (neww) == NULL || (*neww)->next == NULL)
 		print_err1(8, line_number, "swap");
 
-	temp = (*head)->next;
-	(*head)->next = temp->next;
+	temp = (*neww)->next;
+	(*neww)->next = temp->next;
 	if (temp->next != NULL)
-		temp->next->prev = *head;
-	temp->next = *head;
-	(*head)->prev = temp;
+		temp->next->prev = *neww;
+	temp->next = *neww;
+	(*neww)->prev = temp;
 	temp->prev = NULL;
-	*head = temp;
+	*neww = temp;
 }
 
 
@@ -52,11 +52,11 @@ void f_swap(stack_t **head, unsigned int line_number)
  *@line_number: value element
  *Return: void
  */
-void f_pint(stack_t **head, unsigned int line_number)
+void f_pint(stack_t **neww, unsigned int line_number)
 {
-	if (head == NULL || *head == NULL)
+	if (neww == NULL || *neww == NULL)
 		print_err1(6, line_number);
-	printf("%d\n", (*head)->n);
+	printf("%d\n", (*neww)->n);
 }
 
 /**
@@ -65,18 +65,18 @@ void f_pint(stack_t **head, unsigned int line_number)
  *@line_number: element value
  *Return: void
  */
-void f_pop(stack_t **head, unsigned int line_number)
+void f_pop(stack_t **neww, unsigned int line_number)
 {
 	stack_t *stack_arr;
 
-	if (head == NULL || *head == NULL)
+	if (neww == NULL || *neww == NULL)
 		print_err1(7, line_number);
-	stack_arr = *head;
-	*head = stack_arr->next;
+	stack_arr = *neww;
+	*neww = stack_arr->next;
 
-	if (*head != NULL)
+	if (*neww != NULL)
 	{
-		(*head)->prev = NULL;
+		(*neww)->prev = NULL;
 	}
 	free(stack_arr);
 }

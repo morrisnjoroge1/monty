@@ -8,13 +8,13 @@
  *If the value is not in the ascii table (man ascii) print the error
  *Return: void
  */
-void f_pchar(stack_t **head, unsigned int line_number)
+void f_pchar(stack_t **neww, unsigned int line_number)
 {
 	int table;
 
-	if (head == NULL || (*head) == NULL)
+	if (neww == NULL || (*neww) == NULL)
 		print_err2(11, line_number);
-	table = (*head)->n;
+	table = (*neww)->n;
 	if (table < 0 || table > 127)
 		print_err2(10, line_number);
 	printf("%c\n", table);
@@ -26,18 +26,18 @@ void f_pchar(stack_t **head, unsigned int line_number)
  *@line_number: value of the element
  *Return: void
  */
-void f_pstr(stack_t **head, __attribute__((unused))unsigned int line_number)
+void f_pstr(stack_t **neww, __attribute__((unused))unsigned int line_number)
 {
 	int table;
 	stack_t *temp;
 
-	if (head == NULL || (*head) == NULL)
+	if (neww == NULL || (*neww) == NULL)
 	{
 		printf("\n");
 		return;
 	}
 
-	temp = *head;
+	temp = *neww;
 	while (temp != NULL)
 	{
 		table = temp->n;
@@ -59,21 +59,21 @@ void f_pstr(stack_t **head, __attribute__((unused))unsigned int line_number)
  *rotl never fails
  *Return: void
  */
-void rotl(stack_t **head, __attribute__((unused))unsigned int line_number)
+void rotl(stack_t **neww, __attribute__((unused))unsigned int line_number)
 {
 	stack_t *temp;
 
-	if (head == NULL || (*head) == NULL || (*head)->next == NULL)
+	if (neww == NULL || (*neww) == NULL || (*neww)->next == NULL)
 		return;
-	temp = *head;
+	temp = *neww;
 
 	while (temp->next != NULL)
 		temp = temp->next;
-	temp->next = *head;
-	(*head)->prev = temp;
-	*head = (*head)->next;
-	(*head)->prev->next = NULL;
-	(*head)->prev = NULL;
+	temp->next = *neww;
+	(*neww)->prev = temp;
+	*neww = (*neww)->next;
+	(*neww)->prev->next = NULL;
+	(*neww)->prev = NULL;
 }
 
 
@@ -86,19 +86,19 @@ void rotl(stack_t **head, __attribute__((unused))unsigned int line_number)
  *rotr never fails
  *Return: void
  */
-void rotr(stack_t **head, __attribute__((unused))unsigned int line_number)
+void rotr(stack_t **neww, __attribute__((unused))unsigned int line_number)
 {
 	stack_t *temp;
 
-	if (head == NULL || (*head) == NULL || (*head)->next == NULL)
+	if (neww == NULL || (*neww) == NULL || (*neww)->next == NULL)
 		return;
 
-	temp = *head;
+	temp = *neww;
 	while (temp->next != NULL)
 		temp = temp->next;
-	temp->next = *head;
+	temp->next = *neww;
 	temp->prev->next = NULL;
 	temp->prev = NULL;
-	(*head)->prev = temp;
-	(*head) = temp;
+	(*neww)->prev = temp;
+	(*neww) = temp;
 }
