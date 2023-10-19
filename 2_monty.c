@@ -60,7 +60,7 @@ void stack(stack_t **head, unsigned int counter)
 {
 (void)head;
 (void)counter;
-bus.lifi = 0;
+bus.lifo = 0;
 }
 
 
@@ -75,7 +75,7 @@ void queue(stack_t **head, unsigned int counter)
 {
 (void)head;
 (void)counter;
-bus.lifi = 1;
+bus.lifo = 1;
 }
 
 /**

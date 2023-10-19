@@ -1,5 +1,6 @@
-#ifndef MONTY_H
-#define MONTY_H
+#ifndef MONTY_HEADER
+#define MONTY_HEADER
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -12,7 +13,7 @@
 * struct stack_s - doubly linked list representation of a stack (or queue)
 * @n: integer
 * @prev: points to the previous element of the stack (or queue)
-* @next: points to the next element of the stack (or queue)
+I* @next: points to the next element of the stack (or queue)
 *
 * Description: doubly linked list node structure
 * for stack, queues, LIFO, FIFO
@@ -39,19 +40,19 @@ void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /**
-* struct bus_s - variables -args, file, line content
+* struct bus_stack - variables -args, file, line content
 * @arg: value
 * @file: pointer to monty file
 * @content: line content
-* @lifi: flag change stack <-> queue
+* @lifo: flag change stack <-> queue
 * Description: carries values through the program
 */
-typedef struct bus_s
+typedef struct bus_stack
 {
 char *arg;
 FILE *file;
-char *content;
-int lifi;
+char *command;
+int lifo;
 }  bus_t;
 extern bus_t bus;
 
@@ -59,14 +60,14 @@ void f_sub(stack_t **head, unsigned int counter);
 void f_div(stack_t **head, unsigned int counter);
 void f_mul(stack_t **head, unsigned int counter);
 void f_mod(stack_t **head, unsigned int counter);
-void f_pchar(stack_t **head, unsigned int counter);
-void f_pstr(stack_t **head, unsigned int counter);
-void f_rotl(stack_t **head, unsigned int counter);
-void f_rotr(stack_t **head, __attribute__((unused)) unsigned int counter);
-void addnode(stack_t **head, int n);
-void addqueue(stack_t **head, int n);
-void f_queue(stack_t **head, unsigned int counter);
-void f_stack(stack_t **head, unsigned int counter);
+void pchar(stack_t **head, unsigned int counter);
+void pstr(stack_t **head, unsigned int counter);
+void rotl(stack_t **head, unsigned int counter);
+void rotr(stack_t **head, __attribute__((unused)) unsigned int counter);
+void add_node(stack_t **head, int n);
+void addnode_end(stack_t **head, int n);
+void queue(stack_t **head, unsigned int counter);
+void stack(stack_t **head, unsigned int counter);
 char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
 ssize_t getstdin(char **lineptr, int file);
 char  *clean_line(char *content);
