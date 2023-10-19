@@ -65,7 +65,7 @@ void rotr(stack_t **head, __attribute__((unused))unsigned int line_number);
 
 void add_queue(stack_t **head, __attribute__((unused))unsigned int line_number);
 void f_push(stack_t **head, __attribute__((unused))unsigned int line_number);
-void f_pall(stack_t **head, unsigned int line_number);
+void f_pall(stack_t **neww, unsigned int line_number);
 
 void print_err(int error_num, ...);
 void print_err1(int error_num, ...);

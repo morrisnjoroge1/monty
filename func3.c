@@ -54,14 +54,14 @@ void f_push(stack_t **neww, __attribute__((unused))unsigned int line_number)
  *@line_number: value of element
  *Return: void
  */
-void f_pall(stack_t **head, unsigned int line_number)
+void f_pall(stack_t **neww, unsigned int line_number)
 {
 	stack_t *stack_arr;
 
 	(void)line_number;
 	if (head == NULL)
 		exit(EXIT_FAILURE);
-	stack_arr = *head;
+	stack_arr = *neww;
 	while (stack_arr != NULL)
 	{
 		printf("%d\n", stack_arr->n);
