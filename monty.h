@@ -43,7 +43,6 @@ void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 extern stack_t *head;
-stack_t *head = NULL;
 typedef void (*op_func)(stack_t **, unsigned int);
 
 /*ALL THE PROTOTYPES*/
