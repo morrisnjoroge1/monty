@@ -2,7 +2,7 @@
 
 /**
  *f_pchar - prints the char at the top of the stack, followed by a new line.
- *@head: pointer to head stack
+ *@neww: pointer to head stack
  *@line_number: interger represents element value
  *Description: usage: pchar
  *If the value is not in the ascii table (man ascii) print the error
@@ -22,7 +22,7 @@ void f_pchar(stack_t **neww, unsigned int line_number)
 
 /**
  *f_pstr -  prints the string starting at the top of the stack.
- *@head: pointer to  head stack
+ *@neww: pointer to  head stack
  *@line_number: value of the element
  *Return: void
  */
@@ -51,7 +51,7 @@ void f_pstr(stack_t **neww, __attribute__((unused))unsigned int line_number)
 
 /**
  *rotl - rotates the stack to the top.
- *@head: pointer to head stack
+ *@neww: pointer to head stack
  *@line_number: element value
  *Description: usage: rotl
  *The top element of the stack becomes the last one, and the second top
@@ -79,7 +79,7 @@ void rotl(stack_t **neww, __attribute__((unused))unsigned int line_number)
 
 /**
  *rotr -  rotates the stack to the bottom.
- *@head: pointer to  head stack
+ *@neww: pointer to  head stack
  *@line_number: unused integer represents value of element
  *Descriptiojn: usage: rotr
  *The last element of the stack becomes the top element of the stack

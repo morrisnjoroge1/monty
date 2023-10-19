@@ -28,7 +28,7 @@ The opcode push pushes an element to the stack.
 
 Usage: push <int>
 where <int> is an integer
-if <int> is not an integer or if there is no argument given to push, 
+if <int> is not an integer or if there is no argument given to push,
 	print("L<line_number>: usage: push integer\n") and exit (EXIT_FAILURE)
 where is the line number in the file. Use atoi function.
 
@@ -50,7 +50,7 @@ If the stack is empty, print the error message L<line_number>: can't pop an empt
 /*The swap opcode*/
 The opcode swap swaps the top two elements of the stack.
 Usage: swap
-If the stack contains less than two elements, print the error message 
+If the stack contains less than two elements, print the error message
 	L<line_number>: can't swap, stack too short, followed by a new line, and exit with the status EXIT_FAILURE
 
 /*The add opcode*/
@@ -72,7 +72,7 @@ If the stack contains less than two elements, print the error message L<line_num
 /*The div opcode*/
 The opcode div divides the second top element of the stack by the top element of the stack.
 Usage: div
-If the stack contains less than two elements, print the error message L<line_number>: 
+If the stack contains less than two elements, print the error message L<line_number>:
 	can't div, stack too short, followed by a new line, and exit with the status EXIT_FAILURE
 
 /*The mul opcode*/
