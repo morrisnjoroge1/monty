@@ -21,12 +21,12 @@ void f_pchar(stack_t **head, unsigned int line_number)
 }
 
 /**
- *p_str -  prints the string starting at the top of the stack.
- *@head: pointer to the top head of stack
+ *f_pstr -  prints the string starting at the top of the stack.
+ *@head: pointer to  head stack
  *@line_number: value of the element
  *Return: void
  */
-void p_str(stack_t **head, __attribute__((unused))unsigned int line_number)
+void f_pstr(stack_t **head, __attribute__((unused))unsigned int line_number)
 {
 	int table;
 	stack_t *temp;
@@ -51,7 +51,7 @@ void p_str(stack_t **head, __attribute__((unused))unsigned int line_number)
 
 /**
  *rotl - rotates the stack to the top.
- *@head: pointer to the head stack
+ *@head: pointer to head stack
  *@line_number: element value
  *Description: usage: rotl
  *The top element of the stack becomes the last one, and the second top
@@ -79,7 +79,7 @@ void rotl(stack_t **head, __attribute__((unused))unsigned int line_number)
 
 /**
  *rotr -  rotates the stack to the bottom.
- *@head: pointer to the head stack
+ *@head: pointer to  head stack
  *@line_number: unused integer represents value of element
  *Descriptiojn: usage: rotr
  *The last element of the stack becomes the top element of the stack

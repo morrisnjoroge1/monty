@@ -3,7 +3,7 @@
 /**
  *f_mul - multiplies the second top element of the stack with the
  *top element of the stack.
- *@head: double pointer to the head stack
+ *@head: pointer to head stack
  *@line_number: value of elememnts
  *Return: void
  */
@@ -23,7 +23,7 @@ void f_mul(stack_t **head, unsigned int line_number)
 
 /**
  *f_swap - swaps the top two elements of the stack.
- *@head: double pointer to the head stack
+ *@head: pointer to head stack
  *@line_number: value of element
  *Description: usage: swap
  *Return: void
@@ -48,7 +48,7 @@ void f_swap(stack_t **head, unsigned int line_number)
 
 /**
  *f_pint -  prints the value at the top of the stack, followed by a new line.
- *@head: pointer to head of stack
+ *@head: pointer to head stack
  *@line_number: value element
  *Return: void
  */

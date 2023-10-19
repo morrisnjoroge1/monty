@@ -119,7 +119,7 @@ void execute(char *opcode, char *val, int line_number, int format)
  *@format: format specifier
  *Return: void
  */
-void c_func(opc_func func, char *opc, char *valc, int line_number, int format)
+void c_func(op_func func, char *opc, char *valc, int line_number, int format)
 {
 	stack_t *node;
 	int flag;

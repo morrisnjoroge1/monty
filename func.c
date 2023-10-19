@@ -23,7 +23,7 @@ void f_add(stack_t **head, unsigned int line_number)
 /**
  *f_div -  divides the second top element of the stack by the
  *top element of the stack.
- *@head: pointer to top head stack
+ *@head: pointer to head stack
  *@line_number: value of new node
  *Return: void
  */
@@ -46,7 +46,7 @@ void f_div(stack_t **head, unsigned int line_number)
 /**
  *f_sub -  subtracts the top element of the stack from
  *the second top element of the stack.
- *@head: pointer to thehead of node
+ *@head: pointer to head stack
  *@line_number: value of node
  *Return: void
  */
@@ -66,7 +66,7 @@ void f_sub(stack_t **head, unsigned int line_number)
 
 /**
  *f_nop - doesn’t do anything.
- *@head: double pointer to the head of stack
+ *@head: pointer to head stack
  *@line_number: value of element
  *Return: void
  */

@@ -50,7 +50,7 @@ void f_push(stack_t **neww, __attribute__((unused))unsigned int line_number)
 
 /**
  *f_pall - adds new node to stack
- *@head: pointer to hesd stack
+ *@head: pointer to head stack
  *@line_number: value of element
  *Return: void
  */

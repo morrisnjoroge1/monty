@@ -1,6 +1,8 @@
 #ifndef MONTY_HEADER
 #define MONTY_HEADER
 
+#define _GNU_SOURCE
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -40,8 +42,9 @@ char *opcode;
 void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+extern stack_t *head;
 stack_t *head = NULL;
-typedef void (*opc_func)(stack_t **, unsigned int);
+typedef void (*op_func)(stack_t **, unsigned int);
 
 /*ALL THE PROTOTYPES*/
 void f_add(stack_t **head, unsigned int line_number);
@@ -75,6 +78,6 @@ void open_fl(char *sile_name);
 void read_fl(FILE *pd);
 int parse_line(char *buff, int line_number, int format);
 void execute(char *opcode, char *val, int line_number, int format);
-void c_func(opc_func func, char *opc, char *valc, int line_number, int format);
+void c_func(op_func func, char *opc, char *valc, int line_number, int format);
 
 #endif
