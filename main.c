@@ -53,3 +53,28 @@ stack_t *create(int n)
 	add->n = n;
 	return (add);
 }
+
+/**
+ *add_queue - add node to queue
+ *@neww: new node
+ *@line_number: unsed parameter
+ *Return: void
+ */
+void add_queue(stack_t **neww, __attribute__((unused))unsigned int line_number)
+{
+	stack_t *stack_arr;
+
+	if (neww == NULL || *neww == NULL)
+		exit(EXIT_FAILURE);/*SAME AS EXIT(1);*/
+	if (head == NULL)
+	{
+		head = *neww;
+		return;
+	}
+	stack_arr = head;
+
+	while (stack_arr->next != NULL)
+		stack_arr = stack_arr->next;
+	stack_arr->next = *neww;
+	(*neww)->prev = stack_arr;
+}
