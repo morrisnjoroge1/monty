@@ -1,46 +1,55 @@
 #include "monty.h"
-#include <stdio.h>
-bus_t bus = {NULL, NULL, NULL, 0};
+
 /**
-* main - monty code interpreter
-* @argc: number of arguments
-* @argv: monty file location
-* Return: 0 on success
-*/
+ *main - monty code interpreter.
+ *@argc: number of arguments
+ *@argv: array of arguments
+ *Return: 0 on success 0r 1 otherwise
+ */
 int main(int argc, char *argv[])
 {
-	char *command;
-	FILE *file;
-	size_t size = 0;
-	ssize_t read_line = 1;
-	stack_t *stack = NULL;
-	unsigned int counter = 0;
-
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	file = fopen(argv[1], "r");
-	bus.file = file;
-	if (!file)
+	open_fl(argv[1]);
+	free_stack();
+	return (0);
+}
+/**
+ *free_stack - frees doubly linked lidt in stack
+ *Return: void
+ */
+void free_stack(void)
+{
+	stack_t *stack_arr;
+
+	if (head == NULL)
+		return;
+
+	while (head != NULL)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		exit(EXIT_FAILURE);
+		stack_arr = head;
+		head = head->next;
+		free(stack_arr);
 	}
-	while (read_line > 0)
-	{
-		command = NULL;
-		read_line = getline(&command, &size, file);
-		bus.command = command;
-		counter++;
-		if (read_line > 0)
-		{
-			execute(command, &stack, counter, file);
-		}
-		free(command);
-	}
-	free_stack(stack);
-	fclose(file);
-return (0);
+}
+
+/**
+ *create - creates a new node to linked list
+ *@n: integer
+ *Return: address of newnode or NULL otherwise
+ */
+stack_t *create(int n)
+{
+	stack_t *add;
+
+	add = malloc(sizeof(stack_t));
+	if (add == NULL)
+		print_err(4);
+	add->next = NULL;
+	add->prev = NULL;
+	add->n = n;
+	return (add);
 }
