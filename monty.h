@@ -80,4 +80,5 @@ int parse_line(char *buff, int line_number, int format);
 void execute(char *opcode, char *val, int line_number, int format);
 void c_func(op_func func, char *opc, char *valc, int line_number, int format);
 
+int check_if_integer(char *);
 #endif
