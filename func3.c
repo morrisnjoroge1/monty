@@ -10,26 +10,21 @@ void f_push(stack_t **neww, __attribute__((unused))unsigned int line_number)
 {
 	stack_t *stack_arr;
 
-	if (neww == NULL || *neww == NULL)
-	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
-	}
-	stack_arr = malloc(sizeof(stack_t));
-	if (stack_arr == NULL)
-	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
-	stack_arr->n = (*neww)->n; /*Assuming *neww contains the integer value*/
-	stack_arr->prev = NULL;
-	stack_arr->next = head;
-
-	if (head != NULL)
-	{
-		head->prev = stack_arr;
-	}
-	head = stack_arr;
+        if (neww == NULL || *neww == NULL)
+        {
+                fprintf(stderr, "L%u: usage: push integer\n", line_number);
+                exit(EXIT_FAILURE);
+        }
+        stack_arr = malloc(sizeof(stack_t));
+        if (head == NULL)
+        {
+                head = *neww;
+                return;
+        }
+        stack_arr = head;
+        head = *neww;
+        head->next = stack_arr;
+        stack_arr->prev = head;
 }
 
 /**
