@@ -1,7 +1,5 @@
-#ifndef MONTY_HEADER
-#define MONTY_HEADER
-
-#define _GNU_SOURCE
+#ifndef TADEM_H
+#define TADEM_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,23 +8,23 @@
 #include <fcntl.h>
 #include <string.h>
 #include <ctype.h>
-#include <stdarg.h>
 
 /**
 * struct stack_s - doubly linked list representation of a stack (or queue)
 * @n: integer
 * @prev: points to the previous element of the stack (or queue)
-I* @next: points to the next element of the stack (or queue)
+* @next: points to the next element of the stack (or queue)
 *
 * Description: doubly linked list node structure
 * for stack, queues, LIFO, FIFO
 */
 typedef struct stack_s
 {
-int n;
-struct stack_s *prev;
-struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
+
 
 /**
 * struct instruction_s - opcode and its function
@@ -38,47 +36,53 @@ struct stack_s *next;
 */
 typedef struct instruction_s
 {
-char *opcode;
-void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern stack_t *head;
-typedef void (*op_func)(stack_t **, unsigned int);
 
-/*ALL THE PROTOTYPES*/
-void f_add(stack_t **neww, unsigned int line_number);
-void f_div(stack_t **neww, unsigned int line_number);
-void f_sub(stack_t **neww, unsigned int line_number);
-void f_mod(stack_t **neww, unsigned int line_number);
-void f_nop(stack_t **neww, unsigned int line_number);
+/**
+* struct bus_s - variables -args, file, line content
+* @arg: value
+* @file: pointer to monty file
+* @content: line content
+* @lifi: flag change stack <-> queue
+*
+* Description: carries values through the program
+*/
+typedef struct bus_s
+{
+	char *arg;
+	FILE *file;
+	char *content;
+	int lifi;
+}  bus_t;
+extern bus_t bus;
 
-void f_mul(stack_t **neww, unsigned int line_number);
-void f_swap(stack_t **neww, unsigned int line_number);
-void f_pint(stack_t **neww, unsigned int line_number);
-void f_pop(stack_t **neww, unsigned int line_number);
+char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
+ssize_t getstdin(char **lineptr, int file);
+char  *clean_line(char *content);
+void f_push(stack_t **head, unsigned int number);
+void f_pall(stack_t **head, unsigned int number);
+void f_pint(stack_t **head, unsigned int number);
+int execute(char *content, stack_t **head, unsigned int counter, FILE *file);
+void free_stack(stack_t *head);
+void f_pop(stack_t **head, unsigned int counter);
+void f_swap(stack_t **head, unsigned int counter);
+void f_add(stack_t **head, unsigned int counter);
+void f_nop(stack_t **head, unsigned int counter);
+void f_sub(stack_t **head, unsigned int counter);
+void f_div(stack_t **head, unsigned int counter);
+void f_mul(stack_t **head, unsigned int counter);
+void f_mod(stack_t **head, unsigned int counter);
+void f_pchar(stack_t **head, unsigned int counter);
+void f_pstr(stack_t **head, unsigned int counter);
+void f_rotl(stack_t **head, unsigned int counter);
+void f_rotr(stack_t **head, __attribute__((unused)) unsigned int counter);
+void addnode(stack_t **head, int n);
+void addqueue(stack_t **head, int n);
+void f_queue(stack_t **head, unsigned int counter);
+void f_stack(stack_t **head, unsigned int counter);
 
-void f_pchar(stack_t **neww, unsigned int line_number);
-void f_pstr(stack_t **neww, __attribute__((unused))unsigned int line_number);
-void rotl(stack_t **neww, __attribute__((unused))unsigned int line_number);
-void rotr(stack_t **neww, __attribute__((unused))unsigned int line_number);
 
-void add_queue(stack_t **neww,
-__attribute__((unused))unsigned int line_number);
-void f_push(stack_t **neww, __attribute__((unused))unsigned int line_number);
-void f_pall(stack_t **neww, unsigned int line_number);
-
-void print_err(int error_num, ...);
-void print_err1(int error_num, ...);
-void print_err2(int error_num, ...);
-
-void free_stack(void);
-stack_t *create(int n);
-
-void open_fl(char *sile_name);
-void read_fl(FILE *pd);
-int parse_line(char *buff, int line_number, int format);
-void execute(char *opcode, char *val, int line_number, int format);
-void c_func(op_func func, char *opc, char *valc, int line_number, int format);
-
-int check_if_integer(char *);
 #endif

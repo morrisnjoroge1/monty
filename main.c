@@ -1,81 +1,51 @@
 #include "monty.h"
-stack_t *head = NULL;
+#include <stdio.h>
+#define _GNU_SOURCE
+#include <stdlib.h>
+
+bus_t bus = {NULL, NULL, NULL, 0};
 
 /**
- *main - monty code interpreter.
- *@argc: number of arguments
- *@argv: array of arguments
- *Return: 0 on success 0r 1 otherwise
- */
+* main - function for monty code interpreter
+* @argc: argument count
+* @argv: argument value
+*
+* Return: 0 on success
+*/
 int main(int argc, char *argv[])
 {
+	char *content;
+	FILE *file;
+	size_t size = 0;
+	ssize_t read_line = 1;
+	stack_t *stack = NULL;
+	unsigned int counter = 0;
+
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	open_fl(argv[1]);
-	free_stack();
-	return (0);
-}
-/**
- *free_stack - frees doubly linked lidt in stack
- *Return: void
- */
-void free_stack(void)
-{
-	stack_t *stack_arr;
-
-	if (head == NULL)
-		return;
-
-	while (head != NULL)
+	file = fopen(argv[1], "r");
+	bus.file = file;
+	if (!file)
 	{
-		stack_arr = head;
-		head = head->next;
-		free(stack_arr);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
 	}
-}
-
-/**
- *create - creates a new node to linked list
- *@n: integer
- *Return: address of newnode or NULL otherwise
- */
-stack_t *create(int n)
-{
-	stack_t *add;
-
-	add = malloc(sizeof(stack_t));
-	if (add == NULL)
-		print_err(4);
-	add->next = NULL;
-	add->prev = NULL;
-	add->n = n;
-	return (add);
-}
-
-/**
- *add_queue - add node to queue
- *@neww: new node
- *@line_number: unsed parameter
- *Return: void
- */
-void add_queue(stack_t **neww, __attribute__((unused))unsigned int line_number)
-{
-	stack_t *stack_arr;
-
-	if (neww == NULL || *neww == NULL)
-		exit(EXIT_FAILURE);/*SAME AS EXIT(1);*/
-	if (head == NULL)
+	while (read_line > 0)
 	{
-		head = *neww;
-		return;
+		content = NULL;
+		read_line = getline(&content, &size, file);
+		bus.content = content;
+		counter++;
+		if (read_line > 0)
+		{
+			execute(content, &stack, counter, file);
+		}
+		free(content);
 	}
-	stack_arr = head;
-
-	while (stack_arr->next != NULL)
-		stack_arr = stack_arr->next;
-	stack_arr->next = *neww;
-	(*neww)->prev = stack_arr;
+	free_stack(stack);
+	fclose(file);
+return (0);
 }
