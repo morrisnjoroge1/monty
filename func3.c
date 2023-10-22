@@ -22,6 +22,7 @@ void f_push(stack_t **neww, __attribute__((unused))unsigned int line_number)
 	head->next = stack_arr;
 	stack_arr->prev = head;
 }
+
 /**
  *f_pall - adds new node to stack
  *@neww: pointer to head stack
