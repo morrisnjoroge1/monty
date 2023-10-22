@@ -8,14 +8,13 @@
  */
 void f_push(stack_t **neww, __attribute__((unused))unsigned int line_number)
 {
-	stack_t *stack_arr;
+        stack_t *stack_arr;
 
         if (neww == NULL || *neww == NULL)
         {
-                fprintf(stderr, "L%u: usage: push integer\n", line_number);
                 exit(EXIT_FAILURE);
         }
-        stack_arr = malloc(sizeof(stack_t));
+        
         if (head == NULL)
         {
                 head = *neww;
